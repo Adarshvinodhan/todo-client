@@ -56,46 +56,62 @@ export default function Notes(){
   }
 
   return(
-<div className="min-h-screen bg-gray-100 flex flex-col items-center py-8 px-4 relative">
+<div className="min-h-screen bg-gray-900 text-gray-200 flex flex-col items-center py-8 px-4 relative">
+  {/* Logout Button */}
   <button
     onClick={() => logout()}
-    className="absolute top-4 right-4 px-4 py-2 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400"
+    className="absolute top-4 right-4 px-4 py-2 bg-red-600 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400 transform transition-transform duration-300 hover:scale-105"
   >
     Logout
   </button>
-  <div className="w-full max-w-md bg-white shadow-md rounded-lg p-6 mt-8">
-    <h1 className="text-2xl font-bold text-gray-800 mb-4 text-center">Task</h1>
+
+  {/* Task Manager Container */}
+  <div className="w-full max-w-md bg-gray-800 shadow-lg rounded-lg p-6 mt-8 transform transition-transform hover:scale-105">
+    <h1 className="text-3xl font-bold text-gray-100 mb-6 text-center">
+      Task Manager
+    </h1>
+
+    {/* Add Note Section */}
     <div className="flex items-center space-x-2 mb-6">
       <input
         type="text"
-        placeholder="Add a note"
+        placeholder="Add a note..."
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+        className="flex-1 px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-100 placeholder-gray-400"
       />
       <button
         onClick={() => addNote()}
-        className="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        className="px-4 py-2 bg-purple-600 text-white font-semibold rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-400 transform transition-transform duration-300 hover:scale-105"
       >
         Add
       </button>
     </div>
+
+    {/* Notes List */}
     <ul className="space-y-4">
       {notes.map((note) => (
         <li
           key={note._id}
-          className="flex justify-between items-center p-4 bg-gray-50 border rounded-lg shadow-sm"
+          className="flex justify-between items-center p-4 bg-gray-700 border border-gray-600 rounded-lg shadow-md"
         >
-          <span className="text-gray-700">{note.note}</span>
+          <span className="text-gray-300">{note.note}</span>
           <button
             onClick={() => deleteNote(note._id)}
-            className="text-red-500 hover:text-red-700 font-semibold"
+            className="text-red-500 hover:text-red-700 font-semibold transform transition-transform duration-200 hover:scale-110"
           >
             x
           </button>
         </li>
       ))}
     </ul>
+
+    {/* Empty State */}
+    {notes.length === 0 && (
+      <p className="text-center text-gray-400 mt-4 animate-pulse">
+        No tasks yet. Add a new task to get started!
+      </p>
+    )}
   </div>
 </div>
 

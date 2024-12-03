@@ -20,63 +20,66 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="w-full max-w-md bg-white rounded-lg shadow-md p-8">
-        <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
-          Login
-        </h2>
-        <div className="space-y-4">
-          <div>
-            <label
-              htmlFor="username"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Username
-            </label>
-            <input
-              type="text"
-              name="username"
-              id="username"
-              placeholder="Enter your username or try test"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-              className="w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Password
-            </label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Enter your password or try test"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="w-full mt-1 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            />
-          </div>
-          <button
-            onClick={userLogin}
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+    <div className="min-h-screen flex items-center justify-center bg-gray-900 text-gray-200">
+    <div className="w-full max-w-md bg-gray-800 rounded-lg shadow-lg p-8 transform transition-transform hover:scale-105">
+      <h2 className="text-3xl font-extrabold text-center mb-6 text-gray-100">
+        Login
+      </h2>
+      <p className="text-center text-sm mb-4 text-gray-400 animate-fadeIn">
+        Welcome back! Please log in to manage your tasks efficiently.
+      </p>
+      <div className="space-y-6">
+        <div>
+          <label
+            htmlFor="username"
+            className="block text-sm font-medium text-gray-300"
           >
-            Login
-          </button>
-          <p className="text-center text-sm text-gray-600">
-            New user?{' '}
-            <Link to="/register" className="text-blue-600 hover:underline">
-              Register here
-            </Link>
-          </p>
+            Username
+          </label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Enter your username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+            className="w-full mt-2 px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-100"
+          />
         </div>
+        <div>
+          <label
+            htmlFor="password"
+            className="block text-sm font-medium text-gray-300"
+          >
+            Password
+          </label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Enter your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            className="w-full mt-2 px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-100"
+          />
+        </div>
+        <button
+          onClick={userLogin}
+          className="w-full bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transform transition-transform duration-300 hover:scale-105"
+        >
+          Login
+        </button>
+        <p className="text-center text-sm text-gray-400">
+          New user?{' '}
+          <Link to="/register" className="text-purple-400 hover:underline">
+            Register here
+          </Link>
+        </p>
       </div>
     </div>
+  </div>  
   );
 }
 
