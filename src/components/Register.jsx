@@ -109,7 +109,7 @@ const Register = () => {
         </button>
       </form>
       <p className="text-center text-xs text-gray-500 mt-4">
-        Note: The server is running on a free tier and might take 10-15 seconds to respond.
+        Note: The server is running on a free tier and might take 10-15 seconds for initial response.
       </p>
     </div>
   </div>
